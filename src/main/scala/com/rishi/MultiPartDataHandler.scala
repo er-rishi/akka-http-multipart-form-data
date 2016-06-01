@@ -25,7 +25,7 @@ trait MultiPartDataHandler {
    * Route for process multipart data
    */
   def processMultiPartData: Route = {
-    path("user" / "save" / "multipart" / "data") {
+    path("process" / "multipart" / "data") {
       (post & entity(as[Multipart.FormData])) { formData =>
           complete {
       val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
